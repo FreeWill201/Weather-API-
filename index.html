@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather Forecast</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      input::placeholder {
+        color: red;
+        background-color: blue;
+        font-style: italic;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Five Day Weather Forecast</h1>
+      <div>
+        <img
+          src="https://www.seathecity.com/wp-content/uploads/2021/04/new-york-3602856_640.jpg"
+          height="300"
+          width="400"
+        />
+      </div>
+      <p>Your site for all things weather related</p>
+    </header>
+    <nav>
+      <p>Please select from the following options</p>
+      <button><a href="#Name">City Name</a></button>
+      <button><a href="#Date">Date</a></button>
+      <button><a href="#X">Icon</a></button>
+      <button><a href="#Temp">Temperature</a></button>
+      <button><a href="#Humidity">Humidity</a></button>
+      <button><a href="#Speed">Wind Speed</a></button>
+    </nav>
+    <main>
+      <!-- Make sure to include ID's to link API data from Javascript-->
+      <!-- City Name-->
+      <aside>
+        <div class="city">
+          <h2 id="Name" id="WCity">Current City: Kara-Kulja</h2>
+          <input type="text" placeholder="Enter City Name" />
+        </div>
+        <!-- Date-->
+        <div class="date">
+          <h2 id="Date">Dates</h2>
+          <p>Starting From Today, these are the displayed forecast dates</p>
+          <ul>
+            <li id="WDate">Today</li>
+            <li id="WDate2">Tomorrow</li>
+            <li id="WDate3">The following Day</li>
+            <li id="WDate4">Three days out</li>
+          </ul>
+        </div>
+      </aside>
+      <section>
+        <!-- Icon-->
+        <div class="Icons" class="icon">
+          <h2 id="X" id="WIcon">Icon Here</h2>
+        </div>
+        <!-- Temperature-->
+        <div class="Icons" class="temp">
+          <h2 id="Temp">Temperature</h2>
+          <ul>
+            <li id="WDate">Today</li>
+            <li id="WTemp">Today</li>
+            <li id="WDate2">Tomorrow</li>
+            <li id="WTemp2">Tomorrow</li>
+            <li id="WDate3">The following Day</li>
+            <li id="WTemp3">The following day</li>
+            <li id="WDate4">Three days out</li>
+            <li id="WTemp4">Three days out</li>
+          </ul>
+        </div>
+        <!-- Humidity-->
+        <div class="Icons" class="humidity">
+          <h2 id="Humidity">Humidity</h2>
+          <ul>
+            <li id="WDate">Today</li>
+            <li id="WHum">Today</li>
+            <li id="WDate2">Tomorrow</li>
+            <li id="WHum2">Tomorrow</li>
+            <li id="WDate3">The following Day</li>
+            <li id="WHum3">The following day</li>
+            <li id="WDate4">Three days out</li>
+            <li id="WHum4">Three days out</li>
+          </ul>
+        </div>
+        <!-- Wind Speed-->
+        <div class="Icons" class="wind">
+          <h2 id="Speed">Wind Speed</h2>
+          <ul>
+            <li id="WDate">Today</li>
+            <li id="WSpeed">Today</li>
+            <li id="WDate2">Tomorrow</li>
+            <li id="WSpeed2">Tomorrow</li>
+            <li id="WDate3">The following Day</li>
+            <li id="WSpeed3">The following day</li>
+            <li id="WDate4">Three days out</li>
+            <li id="WSpeed4">Three days out</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <h3>Thank you for your time and have a great day.</h3>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

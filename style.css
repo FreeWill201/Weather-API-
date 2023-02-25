@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+    margin: 0;
+}
+
+  section {
+    flex: 70%;
+    background-color: white;
+    padding: 20px;
+}
+
+aside {
+    flex: 30%;
+    background-color: red;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+main {
+    display: flex;
+}
+
+nav {
+    display: flex;
+    background-color: orange;
+}
+
+nav p {
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+header {
+    padding: 60px;
+    text-align: center;
+    background: black;
+    color: white;
+}
+
+.Icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 60vh;
+    margin: 0 auto;
+    border-style: solid;
+    border-width: 2px;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    background: grey;
+    color: yellow;
+}
+  
+  /* Define media queries to adjust layout and styles for smaller screens */
+  @media (max-width: 768px) {
+    .city,
+    .date,
+    .icon,
+    .temp,
+    .humidity,
+    .wind {
+      margin: 0 auto 1rem;
+      width: 100%;
+    }
+    .icon {
+      width: 8rem;
+      height: 8rem;
+    }
+  }
+  
+  
