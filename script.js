@@ -266,3 +266,8 @@ var APICityCallUrl = function () {
 // CityCall();
 
 APICityCallUrl();
+
+// Make sure to list the current city in the appropriate spot in the html
+// Make sure you are logging different weather dates
+// Add local storage to save inputed cities
+// Make sure there are appropriate titles for the four days, no repeating titles
