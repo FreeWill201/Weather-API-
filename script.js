@@ -76,10 +76,10 @@ var WeatherAPI2 = function (lat, lon) {
           {
             // Do something with the data
             var input = data;
-            var inputdt_txt = input.list[1].dt_txt;
-            var inputtemp = input.list[1].main.temp;
-            var inputhumidity = input.list[1].main.humidity;
-            var inputspeed = input.list[1].wind.speed;
+            var inputdt_txt = input.list[8].dt_txt;
+            var inputtemp = input.list[8].main.temp;
+            var inputhumidity = input.list[8].main.humidity;
+            var inputspeed = input.list[8].wind.speed;
             // HTML integrated Elements
             var WDate = document.getElementById("WDate2");
             var WTemp = document.getElementById("WTemp2");
@@ -124,11 +124,11 @@ var WeatherAPI3 = function (lat, lon) {
             // Do something with the data
             var input = data;
             //  var inputcity = input.city.name;
-            var inputdt_txt = input.list[2].dt_txt;
+            var inputdt_txt = input.list[16].dt_txt;
             // var inputicon = input.list[0].weather.icon;
-            var inputtemp = input.list[2].main.temp;
-            var inputhumidity = input.list[2].main.humidity;
-            var inputspeed = input.list[2].wind.speed;
+            var inputtemp = input.list[16].main.temp;
+            var inputhumidity = input.list[16].main.humidity;
+            var inputspeed = input.list[16].wind.speed;
             // HTML integrated Elements
             // var WCity = document.getElementById("WCity");
             var WDate = document.getElementById("WDate3");
@@ -179,11 +179,11 @@ var WeatherAPI4 = function (lat, lon) {
             // Do something with the data
             var input = data;
             //  var inputcity = input.city.name;
-            var inputdt_txt = input.list[3].dt_txt;
+            var inputdt_txt = input.list[24].dt_txt;
             // var inputicon = input.list[0].weather.icon;
-            var inputtemp = input.list[3].main.temp;
-            var inputhumidity = input.list[3].main.humidity;
-            var inputspeed = input.list[3].wind.speed;
+            var inputtemp = input.list[24].main.temp;
+            var inputhumidity = input.list[24].main.humidity;
+            var inputspeed = input.list[24].wind.speed;
             // HTML integrated Elements
             // var WCity = document.getElementById("WCity");
             var WDate = document.getElementById("WDate4");
@@ -258,6 +258,11 @@ var APICityCallUrl = function () {
         WeatherAPI3(data[0].lat, data[0].lon);
         WeatherAPI2(data[0].lat, data[0].lon);
         WeatherAPI1(data[0].lat, data[0].lon);
+        var input = data;
+        var inputname = input[0].name;
+        var NameCity = document.getElementById("NameCity");
+        NameCity.textContent = inputname;
+        console.log("City Name: " + inputname);
       });
     }
   });
@@ -267,7 +272,7 @@ var APICityCallUrl = function () {
 
 APICityCallUrl();
 
-// Make sure to list the current city in the appropriate spot in the html
-// Make sure you are logging different weather dates
+// Make sure to list the current city in the appropriate spot in the html.Check
+// Make sure you are logging different weather dates.Check
 // Add local storage to save inputed cities
-// Make sure there are appropriate titles for the four days, no repeating titles
+// Make sure there are appropriate titles for the four days, no repeating titles.Check
