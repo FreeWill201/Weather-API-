@@ -1,10 +1,16 @@
 const apiKey = "486ecdc5def7c7b806c18a36a4bd823b";
-console.log("script.js");
+
 const api_url =
   "https://api.openweathermap.org/data/2.5/forecast?lat=40.7128&lon=74.0060&appid=486ecdc5def7c7b806c18a36a4bd823b";
 
-var WeatherAPI1 = function () {
+var WeatherAPI1 = function (lat, lon) {
   console.log("WeatherAPI");
+  const api_url =
+    "https://api.openweathermap.org/data/2.5/forecast?lat=" +
+    lat +
+    "&lon=" +
+    lon +
+    "&appid=486ecdc5def7c7b806c18a36a4bd823b";
   fetch(api_url)
     .then(function (response) {
       console.log(".then");
@@ -52,8 +58,14 @@ var WeatherAPI1 = function () {
 
 WeatherAPI1();
 
-var WeatherAPI2 = function () {
+var WeatherAPI2 = function (lat, lon) {
   console.log("WeatherAPI");
+  const api_url =
+    "https://api.openweathermap.org/data/2.5/forecast?lat=" +
+    lat +
+    "&lon=" +
+    lon +
+    "&appid=486ecdc5def7c7b806c18a36a4bd823b";
   fetch(api_url)
     .then(function (response) {
       console.log(".then");
@@ -93,8 +105,14 @@ var WeatherAPI2 = function () {
 
 WeatherAPI2();
 
-var WeatherAPI3 = function () {
+var WeatherAPI3 = function (lat, lon) {
   console.log("WeatherAPI");
+  const api_url =
+    "https://api.openweathermap.org/data/2.5/forecast?lat=" +
+    lat +
+    "&lon=" +
+    lon +
+    "&appid=486ecdc5def7c7b806c18a36a4bd823b";
   fetch(api_url)
     .then(function (response) {
       console.log(".then");
@@ -142,8 +160,14 @@ var WeatherAPI3 = function () {
 
 WeatherAPI3();
 
-var WeatherAPI4 = function () {
+var WeatherAPI4 = function (lat, lon) {
   console.log("WeatherAPI");
+  const api_url =
+    "https://api.openweathermap.org/data/2.5/forecast?lat=" +
+    lat +
+    "&lon=" +
+    lon +
+    "&appid=486ecdc5def7c7b806c18a36a4bd823b";
   fetch(api_url)
     .then(function (response) {
       console.log(".then");
@@ -191,32 +215,54 @@ var WeatherAPI4 = function () {
 
 WeatherAPI4();
 
-var CityCall = function () {
-  console.log("WeatherAPI");
-  fetch(api_url)
-    .then(function (response) {
-      console.log(".then");
-      if (response.ok) {
-        console.log("if");
-        response.json().then(function (data) {
-          console.log(data);
-          // Please finish this function below
-          {
-            // Do something with the data
-            var input = data;
-            var inputcity = input.city.name;
-            // HTML integrated Elements
+// var CityCall = function () {
+// console.log("WeatherAPI");
+// fetch(api_url)
+//  .then(function (response) {
+//  console.log(".then");
+// if (response.ok) {
+// console.log("if");
+// response.json().then(function (data) {
+//  console.log(data);
+// Please finish this function below
+//  {
+// Do something with the data
+// var input = data;
+// var inputcity = input.city.name;
+// HTML integrated Elements
 
-            // Logging Data, this is where concole.log's should work
-          }
+// Logging Data, this is where concole.log's should work
+//  }
 
-          console.log("City Name: " + inputcity);
-        });
-      }
-    })
-    .catch(function (error) {
-      console.log("Error fetching data from API:", error);
-    });
+//   console.log("City Name: " + inputcity);
+//  });
+//  }
+// })
+// .catch(function (error) {
+//   console.log("Error fetching data from API:", error);
+//  });
+// };
+
+var APICityCallUrl = function () {
+  const CityName = document.getElementById("CityName").value;
+  const CityUrl =
+    "http://api.openweathermap.org/geo/1.0/direct?q=" +
+    CityName +
+    "&appid=" +
+    apiKey;
+  fetch(CityUrl).then(function (response) {
+    if (response.ok) {
+      response.json().then(function (data) {
+        console.log(data[0]);
+        WeatherAPI4(data[0].lat, data[0].lon);
+        WeatherAPI3(data[0].lat, data[0].lon);
+        WeatherAPI2(data[0].lat, data[0].lon);
+        WeatherAPI1(data[0].lat, data[0].lon);
+      });
+    }
+  });
 };
 
-CityCall();
+// CityCall();
+
+APICityCallUrl();
