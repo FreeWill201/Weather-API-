@@ -27,6 +27,7 @@ var WeatherAPI1 = function (lat, lon) {
             var inputtemp = input.list[3].main.temp;
             var inputhumidity = input.list[3].main.humidity;
             var inputspeed = input.list[3].wind.speed;
+            var inputicon = input.list[3].weather[0].icon;
             // HTML integrated Elements
             // var WCity = document.getElementById("WCity");
             var WDate = document.getElementById("WDate");
@@ -34,6 +35,7 @@ var WeatherAPI1 = function (lat, lon) {
             var WTemp = document.getElementById("WTemp");
             var WHum = document.getElementById("WHum");
             var WSpeed = document.getElementById("WSpeed");
+            var WIcon = document.getElementById("WIcon");
             // Logging Data, this is where concole.log's should work
             //  WCity.textContent = inputcity;
             WDate.textContent = inputdt_txt.substring(0, 10);
@@ -41,6 +43,10 @@ var WeatherAPI1 = function (lat, lon) {
             WTemp.textContent = inputtemp;
             WHum.textContent = inputhumidity;
             WSpeed.textContent = inputspeed;
+            WIcon.setAttribute(
+              "src",
+              "https://openweathermap.org/img/w/" + inputicon + ".png"
+            );
           }
           // console.log("City Name: " + inputcity);
           console.log("Date: " + inputdt_txt);
@@ -48,6 +54,7 @@ var WeatherAPI1 = function (lat, lon) {
           console.log("Temp: " + inputtemp);
           console.log("Hum: " + inputhumidity);
           console.log("WindSpeed: " + inputspeed);
+          console.log("Icon :" + inputicon);
         });
       }
     })
@@ -80,21 +87,28 @@ var WeatherAPI2 = function (lat, lon) {
             var inputtemp = input.list[11].main.temp;
             var inputhumidity = input.list[11].main.humidity;
             var inputspeed = input.list[11].wind.speed;
+            var inputicon = input.list[11].weather[0].icon;
             // HTML integrated Elements
             var WDate = document.getElementById("WDate2");
             var WTemp = document.getElementById("WTemp2");
             var WHum = document.getElementById("WHum2");
             var WSpeed = document.getElementById("WSpeed2");
+            var WIcon = document.getElementById("WIcon2");
             // Logging Data, this is where concole.log's should work
             WDate.textContent = inputdt_txt.substring(0, 10);
             WTemp.textContent = inputtemp;
             WHum.textContent = inputhumidity;
             WSpeed.textContent = inputspeed;
+            WIcon.setAttribute(
+              "src",
+              "https://openweathermap.org/img/w/" + inputicon + ".png"
+            );
           }
           console.log("Date: " + inputdt_txt);
           console.log("Temp: " + inputtemp);
           console.log("Hum: " + inputhumidity);
           console.log("WindSpeed: " + inputspeed);
+          console.log("Icon :" + inputicon);
         });
       }
     })
@@ -129,6 +143,7 @@ var WeatherAPI3 = function (lat, lon) {
             var inputtemp = input.list[19].main.temp;
             var inputhumidity = input.list[19].main.humidity;
             var inputspeed = input.list[19].wind.speed;
+            var inputicon = input.list[19].weather[0].icon;
             // HTML integrated Elements
             // var WCity = document.getElementById("WCity");
             var WDate = document.getElementById("WDate3");
@@ -136,6 +151,7 @@ var WeatherAPI3 = function (lat, lon) {
             var WTemp = document.getElementById("WTemp3");
             var WHum = document.getElementById("WHum3");
             var WSpeed = document.getElementById("WSpeed3");
+            var WIcon = document.getElementById("WIcon3");
             // Logging Data, this is where concole.log's should work
             //  WCity.textContent = inputcity;
             WDate.textContent = inputdt_txt.substring(0, 10);
@@ -143,6 +159,10 @@ var WeatherAPI3 = function (lat, lon) {
             WTemp.textContent = inputtemp;
             WHum.textContent = inputhumidity;
             WSpeed.textContent = inputspeed;
+            WIcon.setAttribute(
+              "src",
+              "https://openweathermap.org/img/w/" + inputicon + ".png"
+            );
           }
           // console.log("City Name: " + inputcity);
           console.log("Date: " + inputdt_txt);
@@ -150,6 +170,7 @@ var WeatherAPI3 = function (lat, lon) {
           console.log("Temp: " + inputtemp);
           console.log("Hum: " + inputhumidity);
           console.log("WindSpeed: " + inputspeed);
+          console.log("Icon :" + inputicon);
         });
       }
     })
@@ -184,6 +205,7 @@ var WeatherAPI4 = function (lat, lon) {
             var inputtemp = input.list[27].main.temp;
             var inputhumidity = input.list[27].main.humidity;
             var inputspeed = input.list[27].wind.speed;
+            var inputicon = input.list[27].weather[0].icon;
             // HTML integrated Elements
             // var WCity = document.getElementById("WCity");
             var WDate = document.getElementById("WDate4");
@@ -191,6 +213,7 @@ var WeatherAPI4 = function (lat, lon) {
             var WTemp = document.getElementById("WTemp4");
             var WHum = document.getElementById("WHum4");
             var WSpeed = document.getElementById("WSpeed4");
+            var WIcon = document.getElementById("Wicon4");
             // Logging Data, this is where concole.log's should work
             //  WCity.textContent = inputcity;
             WDate.textContent = inputdt_txt.substring(0, 10);
@@ -198,6 +221,10 @@ var WeatherAPI4 = function (lat, lon) {
             WTemp.textContent = inputtemp;
             WHum.textContent = inputhumidity;
             WSpeed.textContent = inputspeed;
+            WIcon.setAttribute(
+              "src",
+              "https://openweathermap.org/img/w/" + inputicon + ".png"
+            );
           }
           // console.log("City Name: " + inputcity);
           console.log("Date: " + inputdt_txt);
@@ -205,6 +232,7 @@ var WeatherAPI4 = function (lat, lon) {
           console.log("Temp: " + inputtemp);
           console.log("Hum: " + inputhumidity);
           console.log("WindSpeed: " + inputspeed);
+          console.log("Icon :" + inputicon);
         });
       }
     })
@@ -323,3 +351,8 @@ APICityCallUrl();
 
 // Need to fix site to display current city. Check
 // Need to fix site to better display day's 1-4 so there are no repeats. Check
+
+// For tutoring session
+// Need to display last city searched through html
+// Understand why API requests for arrays are not mathcing up
+// Make sure you have properly formated icon data
