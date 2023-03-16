@@ -1,10 +1,6 @@
 const apiKey = "486ecdc5def7c7b806c18a36a4bd823b";
 
-const api_url =
-  "https://api.openweathermap.org/data/2.5/forecast?lat=40.7128&lon=74.0060&appid=486ecdc5def7c7b806c18a36a4bd823b";
-
 var WeatherAPI1 = function (lat, lon) {
-  console.log("WeatherAPI");
   const api_url =
     "https://api.openweathermap.org/data/2.5/forecast?lat=" +
     lat +
@@ -13,20 +9,19 @@ var WeatherAPI1 = function (lat, lon) {
     "&appid=486ecdc5def7c7b806c18a36a4bd823b";
   fetch(api_url)
     .then(function (response) {
-      console.log(".then");
       if (response.ok) {
-        console.log("if");
         response.json().then(function (data) {
           console.log(data);
           {
             // Do something with the data
             var input = data;
             //  var inputcity = input.city.name;
-            var inputdt_txt = input.list[0].dt_txt;
+            var inputdt_txt = input.list[6].dt_txt;
             // var inputicon = input.list[0].weather.icon;
-            var inputtemp = input.list[0].main.temp;
-            var inputhumidity = input.list[0].main.humidity;
-            var inputspeed = input.list[0].wind.speed;
+            var inputtemp = input.list[6].main.temp;
+            var inputhumidity = input.list[6].main.humidity;
+            var inputspeed = input.list[6].wind.speed;
+            var inputicon = input.list[6].weather[0].icon;
             // HTML integrated Elements
             // var WCity = document.getElementById("WCity");
             var WDate = document.getElementById("WDate");
@@ -34,6 +29,7 @@ var WeatherAPI1 = function (lat, lon) {
             var WTemp = document.getElementById("WTemp");
             var WHum = document.getElementById("WHum");
             var WSpeed = document.getElementById("WSpeed");
+            var WIcon = document.getElementById("WIcon");
             // Logging Data, this is where concole.log's should work
             //  WCity.textContent = inputcity;
             WDate.textContent = inputdt_txt.substring(0, 10);
@@ -41,6 +37,10 @@ var WeatherAPI1 = function (lat, lon) {
             WTemp.textContent = inputtemp;
             WHum.textContent = inputhumidity;
             WSpeed.textContent = inputspeed;
+            WIcon.setAttribute(
+              "src",
+              "https://openweathermap.org/img/w/" + inputicon + ".png"
+            );
           }
           // console.log("City Name: " + inputcity);
           console.log("Date: " + inputdt_txt);
@@ -48,6 +48,12 @@ var WeatherAPI1 = function (lat, lon) {
           console.log("Temp: " + inputtemp);
           console.log("Hum: " + inputhumidity);
           console.log("WindSpeed: " + inputspeed);
+          console.log("Icon :" + inputicon);
+          var input = data;
+          var inputname = input.city.name;
+          var WCity = document.getElementById("NameCity");
+          WCity.textContent = inputname;
+          console.log("City Name: " + inputname);
         });
       }
     })
@@ -59,7 +65,6 @@ var WeatherAPI1 = function (lat, lon) {
 WeatherAPI1();
 
 var WeatherAPI2 = function (lat, lon) {
-  console.log("WeatherAPI");
   const api_url =
     "https://api.openweathermap.org/data/2.5/forecast?lat=" +
     lat +
@@ -68,33 +73,38 @@ var WeatherAPI2 = function (lat, lon) {
     "&appid=486ecdc5def7c7b806c18a36a4bd823b";
   fetch(api_url)
     .then(function (response) {
-      console.log(".then");
       if (response.ok) {
-        console.log("if");
         response.json().then(function (data) {
           console.log(data);
           {
             // Do something with the data
             var input = data;
-            var inputdt_txt = input.list[8].dt_txt;
-            var inputtemp = input.list[8].main.temp;
-            var inputhumidity = input.list[8].main.humidity;
-            var inputspeed = input.list[8].wind.speed;
+            var inputdt_txt = input.list[14].dt_txt;
+            var inputtemp = input.list[14].main.temp;
+            var inputhumidity = input.list[14].main.humidity;
+            var inputspeed = input.list[14].wind.speed;
+            var inputicon = input.list[14].weather[0].icon;
             // HTML integrated Elements
             var WDate = document.getElementById("WDate2");
             var WTemp = document.getElementById("WTemp2");
             var WHum = document.getElementById("WHum2");
             var WSpeed = document.getElementById("WSpeed2");
+            var WIcon = document.getElementById("WIcon2");
             // Logging Data, this is where concole.log's should work
             WDate.textContent = inputdt_txt.substring(0, 10);
             WTemp.textContent = inputtemp;
             WHum.textContent = inputhumidity;
             WSpeed.textContent = inputspeed;
+            WIcon.setAttribute(
+              "src",
+              "https://openweathermap.org/img/w/" + inputicon + ".png"
+            );
           }
           console.log("Date: " + inputdt_txt);
           console.log("Temp: " + inputtemp);
           console.log("Hum: " + inputhumidity);
           console.log("WindSpeed: " + inputspeed);
+          console.log("Icon :" + inputicon);
         });
       }
     })
@@ -106,7 +116,6 @@ var WeatherAPI2 = function (lat, lon) {
 WeatherAPI2();
 
 var WeatherAPI3 = function (lat, lon) {
-  console.log("WeatherAPI");
   const api_url =
     "https://api.openweathermap.org/data/2.5/forecast?lat=" +
     lat +
@@ -115,20 +124,19 @@ var WeatherAPI3 = function (lat, lon) {
     "&appid=486ecdc5def7c7b806c18a36a4bd823b";
   fetch(api_url)
     .then(function (response) {
-      console.log(".then");
       if (response.ok) {
-        console.log("if");
         response.json().then(function (data) {
           console.log(data);
           {
             // Do something with the data
             var input = data;
             //  var inputcity = input.city.name;
-            var inputdt_txt = input.list[16].dt_txt;
+            var inputdt_txt = input.list[22].dt_txt;
             // var inputicon = input.list[0].weather.icon;
-            var inputtemp = input.list[16].main.temp;
-            var inputhumidity = input.list[16].main.humidity;
-            var inputspeed = input.list[16].wind.speed;
+            var inputtemp = input.list[22].main.temp;
+            var inputhumidity = input.list[22].main.humidity;
+            var inputspeed = input.list[22].wind.speed;
+            var inputicon = input.list[22].weather[0].icon;
             // HTML integrated Elements
             // var WCity = document.getElementById("WCity");
             var WDate = document.getElementById("WDate3");
@@ -136,6 +144,7 @@ var WeatherAPI3 = function (lat, lon) {
             var WTemp = document.getElementById("WTemp3");
             var WHum = document.getElementById("WHum3");
             var WSpeed = document.getElementById("WSpeed3");
+            var WIcon = document.getElementById("WIcon3");
             // Logging Data, this is where concole.log's should work
             //  WCity.textContent = inputcity;
             WDate.textContent = inputdt_txt.substring(0, 10);
@@ -143,6 +152,10 @@ var WeatherAPI3 = function (lat, lon) {
             WTemp.textContent = inputtemp;
             WHum.textContent = inputhumidity;
             WSpeed.textContent = inputspeed;
+            WIcon.setAttribute(
+              "src",
+              "https://openweathermap.org/img/w/" + inputicon + ".png"
+            );
           }
           // console.log("City Name: " + inputcity);
           console.log("Date: " + inputdt_txt);
@@ -150,6 +163,7 @@ var WeatherAPI3 = function (lat, lon) {
           console.log("Temp: " + inputtemp);
           console.log("Hum: " + inputhumidity);
           console.log("WindSpeed: " + inputspeed);
+          console.log("Icon :" + inputicon);
         });
       }
     })
@@ -161,7 +175,6 @@ var WeatherAPI3 = function (lat, lon) {
 WeatherAPI3();
 
 var WeatherAPI4 = function (lat, lon) {
-  console.log("WeatherAPI");
   const api_url =
     "https://api.openweathermap.org/data/2.5/forecast?lat=" +
     lat +
@@ -170,20 +183,19 @@ var WeatherAPI4 = function (lat, lon) {
     "&appid=486ecdc5def7c7b806c18a36a4bd823b";
   fetch(api_url)
     .then(function (response) {
-      console.log(".then");
       if (response.ok) {
-        console.log("if");
         response.json().then(function (data) {
           console.log(data);
           {
             // Do something with the data
             var input = data;
             //  var inputcity = input.city.name;
-            var inputdt_txt = input.list[24].dt_txt;
+            var inputdt_txt = input.list[30].dt_txt;
             // var inputicon = input.list[0].weather.icon;
-            var inputtemp = input.list[24].main.temp;
-            var inputhumidity = input.list[24].main.humidity;
-            var inputspeed = input.list[24].wind.speed;
+            var inputtemp = input.list[30].main.temp;
+            var inputhumidity = input.list[30].main.humidity;
+            var inputspeed = input.list[30].wind.speed;
+            var inputicon = input.list[30].weather[0].icon;
             // HTML integrated Elements
             // var WCity = document.getElementById("WCity");
             var WDate = document.getElementById("WDate4");
@@ -191,6 +203,7 @@ var WeatherAPI4 = function (lat, lon) {
             var WTemp = document.getElementById("WTemp4");
             var WHum = document.getElementById("WHum4");
             var WSpeed = document.getElementById("WSpeed4");
+            var WIcon = document.getElementById("WIcon4");
             // Logging Data, this is where concole.log's should work
             //  WCity.textContent = inputcity;
             WDate.textContent = inputdt_txt.substring(0, 10);
@@ -198,6 +211,10 @@ var WeatherAPI4 = function (lat, lon) {
             WTemp.textContent = inputtemp;
             WHum.textContent = inputhumidity;
             WSpeed.textContent = inputspeed;
+            WIcon.setAttribute(
+              "src",
+              "https://openweathermap.org/img/w/" + inputicon + ".png"
+            );
           }
           // console.log("City Name: " + inputcity);
           console.log("Date: " + inputdt_txt);
@@ -205,6 +222,7 @@ var WeatherAPI4 = function (lat, lon) {
           console.log("Temp: " + inputtemp);
           console.log("Hum: " + inputhumidity);
           console.log("WindSpeed: " + inputspeed);
+          console.log("Icon :" + inputicon);
         });
       }
     })
@@ -215,38 +233,10 @@ var WeatherAPI4 = function (lat, lon) {
 
 WeatherAPI4();
 
-// var CityCall = function () {
-// console.log("WeatherAPI");
-// fetch(api_url)
-//  .then(function (response) {
-//  console.log(".then");
-// if (response.ok) {
-// console.log("if");
-// response.json().then(function (data) {
-//  console.log(data);
-// Please finish this function below
-//  {
-// Do something with the data
-// var input = data;
-// var inputcity = input.city.name;
-// HTML integrated Elements
-
-// Logging Data, this is where concole.log's should work
-//  }
-
-//   console.log("City Name: " + inputcity);
-//  });
-//  }
-// })
-// .catch(function (error) {
-//   console.log("Error fetching data from API:", error);
-//  });
-// };
-
 var APICityCallUrl = function () {
   const CityName = document.getElementById("CityName").value;
   const CityUrl =
-    "https://api.openweathermap.org/geo/1.0/direct?q=" +
+    "http://api.openweathermap.org/geo/1.0/direct?q=" +
     CityName +
     "&appid=" +
     apiKey;
@@ -258,23 +248,49 @@ var APICityCallUrl = function () {
         WeatherAPI3(data[0].lat, data[0].lon);
         WeatherAPI2(data[0].lat, data[0].lon);
         WeatherAPI1(data[0].lat, data[0].lon);
-        var input = data;
-        var inputname = input[0].name;
-        var NameCity = document.getElementById("NameCity");
-        NameCity.textContent = inputname;
-        console.log("City Name: " + inputname);
+
+        // Local Storage, displays last city selected
+
+        // Retrieve the last and second to last cities from local storage
+        const lastCity = localStorage.getItem("lastCity");
+        const secondLastCity = localStorage.getItem("secondLastCity");
+
+        // Store the current city as the last city and update the second to last city
+        localStorage.setItem("lastCity", CityName); // Replace 'Chicago' with the current city
+        if (!secondLastCity) {
+          // If the second to last city is not stored, set it to a default value
+          localStorage.setItem("secondLastCity", lastCity); // Replace 'New York' with your default value
+        } else {
+          // If the second to last city is already stored, update it to the previous last city
+          localStorage.setItem("secondLastCity", lastCity);
+        }
+
+        // Update the display to show the second to last city
+        const cityHeading = document.getElementById("city-heading");
+        cityHeading.textContent = lastCity;
+
+        // End of Local Storage
       });
     }
   });
 };
 
-// Added an s to http url in APICityCallUrl
-
 // CityCall();
 
-APICityCallUrl();
+// APICityCallUrl();
 
-// Make sure to list the current city in the appropriate spot in the html.Check
-// Make sure you are logging different weather dates.Check
-// Add local storage to save inputed cities
-// Make sure there are appropriate titles for the four days, no repeating titles.Check
+// Need to fix site to display current city. Check
+// Need to fix site to better display day's 1-4 so there are no repeats. Check
+
+// For tutoring session
+// Need to display last city searched through html.check
+// Understand why API requests for arrays are not mathcing up.check
+// Make sure you have properly formated icon data. It is being properly called and logged to the console but not registering through html even though id's match up. not check
+
+// From 3/15/23 Tutor Session
+// Make sure last city selected is linked properly with html id.check
+// To save list of cities in local storage save an array of strings, and make sure the array is a global variable. Change array through json.stringify. Make sure each city in list calls associated data through new functions as needed, not check
+
+// Self notes
+// Cosnider converting temp from kelvin to farenheight, could get some style points
+// Finally don't forget a README.md file, well formatted and detailed!
