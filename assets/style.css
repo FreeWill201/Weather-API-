@@ -13,6 +13,8 @@ body {
     padding: 20px;
 }
 
+/* "aside" establishes the framework for the selected city, the dates, and local storage */
+
 aside {
     flex: 30%;
     background-color: red;
@@ -40,6 +42,7 @@ header {
     background: black;
     color: white;
 }
+/* ".Icons" sets up the weather data points and how they are to be fomratted */
 
 .Icons {
     display: flex;

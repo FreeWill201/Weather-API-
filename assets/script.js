@@ -1,12 +1,14 @@
 const apiKey = "486ecdc5def7c7b806c18a36a4bd823b";
 
-var WeatherAPI1 = function (lat, lon) {
+// Each WeatherAPI references a different data point in the OpenWeather Array to receieve back forecast appropriate data
+
+var WeatherAPI5 = function (lat, lon) {
   const api_url =
     "https://api.openweathermap.org/data/2.5/forecast?lat=" +
     lat +
     "&lon=" +
     lon +
-    "&appid=486ecdc5def7c7b806c18a36a4bd823b";
+    "&appid=486ecdc5def7c7b806c18a36a4bd823b&units=imperial";
   fetch(api_url)
     .then(function (response) {
       if (response.ok) {
@@ -18,10 +20,69 @@ var WeatherAPI1 = function (lat, lon) {
             //  var inputcity = input.city.name;
             var inputdt_txt = input.list[6].dt_txt;
             // var inputicon = input.list[0].weather.icon;
-            var inputtemp = input.list[6].main.temp;
+            var inputtemp = Math.floor(input.list[6].main.temp);
             var inputhumidity = input.list[6].main.humidity;
-            var inputspeed = input.list[6].wind.speed;
+            var inputspeed = Math.floor(input.list[6].wind.speed);
             var inputicon = input.list[6].weather[0].icon;
+            // HTML integrated Elements
+            // var WCity = document.getElementById("WCity");
+            var WDate = document.getElementById("WDate5");
+            // var WIcon = document.getElementById("WIcon");
+            var WTemp = document.getElementById("WTemp5");
+            var WHum = document.getElementById("WHum5");
+            var WSpeed = document.getElementById("WSpeed5");
+            var WIcon = document.getElementById("WIcon5");
+            // Logging Data, this is where concole.log's should work
+            //  WCity.textContent = inputcity;
+            WDate.textContent = inputdt_txt.substring(0, 10);
+            //  WIcon.textContent = inputicon;
+            WTemp.textContent = inputtemp;
+            WHum.textContent = inputhumidity;
+            WSpeed.textContent = inputspeed;
+            WIcon.setAttribute(
+              "src",
+              "https://openweathermap.org/img/w/" + inputicon + ".png"
+            );
+          }
+          // console.log("City Name: " + inputcity);
+          console.log("Date: " + inputdt_txt);
+          // console.log("Icon :" + inputicon);
+          console.log("Temp: " + inputtemp);
+          console.log("Hum: " + inputhumidity);
+          console.log("WindSpeed: " + inputspeed);
+          console.log("Icon NUMBER 5 :" + inputicon);
+        });
+      }
+    })
+    .catch(function (error) {
+      console.log("Error fetching data from API:", error);
+    });
+};
+
+WeatherAPI5();
+
+var WeatherAPI1 = function (lat, lon) {
+  const api_url =
+    "https://api.openweathermap.org/data/2.5/forecast?lat=" +
+    lat +
+    "&lon=" +
+    lon +
+    "&appid=486ecdc5def7c7b806c18a36a4bd823b&units=imperial";
+  fetch(api_url)
+    .then(function (response) {
+      if (response.ok) {
+        response.json().then(function (data) {
+          console.log(data);
+          {
+            // Do something with the data
+            var input = data;
+            //  var inputcity = input.city.name;
+            var inputdt_txt = input.list[14].dt_txt;
+            // var inputicon = input.list[0].weather.icon;
+            var inputtemp = Math.floor(input.list[14].main.temp);
+            var inputhumidity = input.list[14].main.humidity;
+            var inputspeed = Math.floor(input.list[14].wind.speed);
+            var inputicon = input.list[14].weather[0].icon;
             // HTML integrated Elements
             // var WCity = document.getElementById("WCity");
             var WDate = document.getElementById("WDate");
@@ -70,7 +131,7 @@ var WeatherAPI2 = function (lat, lon) {
     lat +
     "&lon=" +
     lon +
-    "&appid=486ecdc5def7c7b806c18a36a4bd823b";
+    "&appid=486ecdc5def7c7b806c18a36a4bd823b&units=imperial";
   fetch(api_url)
     .then(function (response) {
       if (response.ok) {
@@ -79,11 +140,11 @@ var WeatherAPI2 = function (lat, lon) {
           {
             // Do something with the data
             var input = data;
-            var inputdt_txt = input.list[14].dt_txt;
-            var inputtemp = input.list[14].main.temp;
-            var inputhumidity = input.list[14].main.humidity;
-            var inputspeed = input.list[14].wind.speed;
-            var inputicon = input.list[14].weather[0].icon;
+            var inputdt_txt = input.list[22].dt_txt;
+            var inputtemp = Math.floor(input.list[22].main.temp);
+            var inputhumidity = input.list[22].main.humidity;
+            var inputspeed = Math.floor(input.list[22].wind.speed);
+            var inputicon = input.list[22].weather[0].icon;
             // HTML integrated Elements
             var WDate = document.getElementById("WDate2");
             var WTemp = document.getElementById("WTemp2");
@@ -121,7 +182,7 @@ var WeatherAPI3 = function (lat, lon) {
     lat +
     "&lon=" +
     lon +
-    "&appid=486ecdc5def7c7b806c18a36a4bd823b";
+    "&appid=486ecdc5def7c7b806c18a36a4bd823b&units=imperial";
   fetch(api_url)
     .then(function (response) {
       if (response.ok) {
@@ -131,12 +192,12 @@ var WeatherAPI3 = function (lat, lon) {
             // Do something with the data
             var input = data;
             //  var inputcity = input.city.name;
-            var inputdt_txt = input.list[22].dt_txt;
+            var inputdt_txt = input.list[30].dt_txt;
             // var inputicon = input.list[0].weather.icon;
-            var inputtemp = input.list[22].main.temp;
-            var inputhumidity = input.list[22].main.humidity;
-            var inputspeed = input.list[22].wind.speed;
-            var inputicon = input.list[22].weather[0].icon;
+            var inputtemp = Math.floor(input.list[30].main.temp);
+            var inputhumidity = input.list[30].main.humidity;
+            var inputspeed = Math.floor(input.list[30].wind.speed);
+            var inputicon = input.list[30].weather[0].icon;
             // HTML integrated Elements
             // var WCity = document.getElementById("WCity");
             var WDate = document.getElementById("WDate3");
@@ -180,7 +241,7 @@ var WeatherAPI4 = function (lat, lon) {
     lat +
     "&lon=" +
     lon +
-    "&appid=486ecdc5def7c7b806c18a36a4bd823b";
+    "&appid=486ecdc5def7c7b806c18a36a4bd823b&units=imperial";
   fetch(api_url)
     .then(function (response) {
       if (response.ok) {
@@ -190,12 +251,12 @@ var WeatherAPI4 = function (lat, lon) {
             // Do something with the data
             var input = data;
             //  var inputcity = input.city.name;
-            var inputdt_txt = input.list[30].dt_txt;
+            var inputdt_txt = input.list[38].dt_txt;
             // var inputicon = input.list[0].weather.icon;
-            var inputtemp = input.list[30].main.temp;
-            var inputhumidity = input.list[30].main.humidity;
-            var inputspeed = input.list[30].wind.speed;
-            var inputicon = input.list[30].weather[0].icon;
+            var inputtemp = Math.floor(input.list[38].main.temp);
+            var inputhumidity = input.list[38].main.humidity;
+            var inputspeed = Math.floor(input.list[38].wind.speed);
+            var inputicon = input.list[38].weather[0].icon;
             // HTML integrated Elements
             // var WCity = document.getElementById("WCity");
             var WDate = document.getElementById("WDate4");
@@ -233,13 +294,16 @@ var WeatherAPI4 = function (lat, lon) {
 
 WeatherAPI4();
 
+// The below function makes it possible to integrate a specified city search and return the weather data points from the WeatherAPI functions as they are integrated in the below function
+
 var APICityCallUrl = function () {
   const CityName = document.getElementById("CityName").value;
   const CityUrl =
     "http://api.openweathermap.org/geo/1.0/direct?q=" +
     CityName +
     "&appid=" +
-    apiKey;
+    apiKey +
+    "&units=imperial";
   fetch(CityUrl).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
@@ -248,6 +312,7 @@ var APICityCallUrl = function () {
         WeatherAPI3(data[0].lat, data[0].lon);
         WeatherAPI2(data[0].lat, data[0].lon);
         WeatherAPI1(data[0].lat, data[0].lon);
+        WeatherAPI5(data[0].lat, data[0].lon);
 
         // Local Storage, displays last city selected
 
@@ -268,6 +333,14 @@ var APICityCallUrl = function () {
         // Update the display to show the second to last city
         const cityHeading = document.getElementById("city-heading");
         cityHeading.textContent = lastCity;
+        cityHeading.addEventListener("click", function (event) {
+          event.preventDefault();
+          WeatherAPI4(data[0].lat, data[0].lon);
+          WeatherAPI3(data[0].lat, data[0].lon);
+          WeatherAPI2(data[0].lat, data[0].lon);
+          WeatherAPI1(data[0].lat, data[0].lon);
+          WeatherAPI5(data[0].lat, data[0].lon);
+        });
 
         // End of Local Storage
       });
@@ -275,22 +348,5 @@ var APICityCallUrl = function () {
   });
 };
 
-// CityCall();
 
-// APICityCallUrl();
 
-// Need to fix site to display current city. Check
-// Need to fix site to better display day's 1-4 so there are no repeats. Check
-
-// For tutoring session
-// Need to display last city searched through html.check
-// Understand why API requests for arrays are not mathcing up.check
-// Make sure you have properly formated icon data. It is being properly called and logged to the console but not registering through html even though id's match up. not check
-
-// From 3/15/23 Tutor Session
-// Make sure last city selected is linked properly with html id.check
-// To save list of cities in local storage save an array of strings, and make sure the array is a global variable. Change array through json.stringify. Make sure each city in list calls associated data through new functions as needed, not check
-
-// Self notes
-// Cosnider converting temp from kelvin to farenheight, could get some style points
-// Finally don't forget a README.md file, well formatted and detailed!
